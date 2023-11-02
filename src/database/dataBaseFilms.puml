@@ -1,0 +1,26 @@
+@startuml
+
+class film {
+  #id int(10) -- A comment
+  field1 int(10)
+  .. Comment line, ignored ..
+  field2 varchar(128)
+}
+
+class user {
+  #id int(10) -- A comment
+  field1 int(10)
+  .. Comment line, ignored ..
+  field2 varchar(128)
+}
+
+class users {
+  id integer [primary key]
+  username varchar
+  role varchar
+  created_at timestamp
+}
+
+film::id --> user::field1 : Связь
+
+@enduml
