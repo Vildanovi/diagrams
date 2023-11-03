@@ -20,8 +20,38 @@
 ![Превью базы данных](main/resources/images/DB_Filmorate.png)
 
 ## Базовые запросы
-#### Получить список пользователей
-`
-ddfde
-`
+- #### Получить список фильмов отсортированных по дате релиза
+```roomsql
+SELECT film.name,
+       CAST(release_date AS date)
+FROM film
+ORDER BY CAST(release_date AS date) DESC; 
+```
 
+
+- #### Получить список фильмов отсортированных по дате за выбранный период
+```roomsql
+SELECT CAST(invoice_date AS date),
+       SUM(total)
+FROM film
+WHERE CAST(release_date AS date) between '2022-01-01' AND '2023-01-01'
+ORDER BY CAST(release_date AS date) DESC; 
+```
+
+- #### Получить имена, логины и email пользователей c необходимым лимитом
+```roomsql
+SELECT user.name,
+       user.email,
+       user.login
+FROM user
+LIMIT 10;
+```
+
+- #### Получить список друзей пользователей
+```roomsql
+SELECT ffirst.name,
+       fsecond.name
+FROM user AS ufirst
+LEFT JOIN user_friends AS ffirst ON ufirst.user_id=f.user1_id
+LEFT JOIN user_friends AS fsecond ON ufirst.user_id=fsecond.user2_id
+```
