@@ -47,11 +47,16 @@ FROM user
 LIMIT 10;
 ```
 
-- #### Получить список друзей пользователей
+- #### Получить количество друзей пользователей
 ```roomsql
-SELECT ffirst.name,
-       fsecond.name
-FROM user AS ufirst
-LEFT JOIN user_friends AS ffirst ON ufirst.user_id=f.user1_id
-LEFT JOIN user_friends AS fsecond ON ufirst.user_id=fsecond.user2_id
+SELECT name, 
+       t.friends_count 
+FROM user
+JOIN (
+SELECT product_id, 
+       count(*) AS friends_count
+FROM user_friends
+GROUP BY product_id
+) AS f
+ON user.user_id = f.user1_id;
 ```
