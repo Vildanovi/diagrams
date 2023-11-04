@@ -16,8 +16,8 @@
 > [Перейти](https://app.quickdatabasediagrams.com/#/d/CAk39h)
 
 
-[Посмотреть в файле *.png](main/resources/images/DB_Filmorate.png)
-![Превью базы данных](main/resources/images/DB_Filmorate.png)
+[Посмотреть в файле *.png](src/main/resources/images/DB_Filmorate.png)
+![Превью базы данных](src/main/resources/images/DB_Filmorate.png)
 
 ## Базовые запросы
 - #### Получить список фильмов отсортированных по дате релиза
